@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dhuqv0rtmfoht"]
+
+[ext_resource type="Script" uid="uid://dejoy7mk4q0xf" path="res://TestWorldThings/test_player.gd" id="1_erogg"]
+
+[node name="TestPlayer" type="Node3D" unique_id=951057807]
+script = ExtResource("1_erogg")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=168401609]
+fov = 90.0
+far = 100.0
+
+[node name="Forward" type="RayCast3D" parent="." unique_id=901578875]
+target_position = Vector3(0, 0, -2)
+collide_with_areas = true
+
+[node name="Backward" type="RayCast3D" parent="." unique_id=2008268623]
+target_position = Vector3(0, 0, 2)
+collide_with_areas = true
+
+[node name="Right" type="RayCast3D" parent="." unique_id=1431031018]
+target_position = Vector3(2, 0, 0)
+collide_with_areas = true
+
+[node name="Left" type="RayCast3D" parent="." unique_id=44612223]
+target_position = Vector3(-2, 0, 0)
+collide_with_areas = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=425170549]
+light_color = Color(1, 0.9764706, 0.85882354, 1)
+light_energy = 2.0
+shadow_enabled = true
+spot_attenuation = 2.37
+spot_angle = 64.36
+spot_angle_attenuation = 3.03
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1607731162]
+light_energy = 0.795
+omni_range = 7.96
+omni_attenuation = 1.56

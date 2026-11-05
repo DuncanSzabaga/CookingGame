@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dgsu3ytuxlk3"]
+
+[ext_resource type="Script" uid="uid://bbwby0kk8tape" path="res://TestWorldThings/test_world.gd" id="1_skmq4"]
+[ext_resource type="PackedScene" uid="uid://b5ln428pbi16a" path="res://TestWorldThings/test_map.tscn" id="2_707cn"]
+[ext_resource type="PackedScene" uid="uid://dhuqv0rtmfoht" path="res://TestWorldThings/test_player.tscn" id="2_au00k"]
+
+[node name="TestWorld" type="Node3D" unique_id=157158282]
+script = ExtResource("1_skmq4")
+Map = ExtResource("2_707cn")
+
+[node name="TestPlayer" parent="." unique_id=951057807 instance=ExtResource("2_au00k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
