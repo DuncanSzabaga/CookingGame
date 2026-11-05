@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bgf4fynnkqd5n" path="res://icon.svg" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dn5ap60quda7u" path="res://Scenes/player.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://bbsel1d30850u" path="res://Scenes/food.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://dbkrf7x6c7hkt" path="res://Assets/ingredients/lettuce.glb" id="4_jjvhh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bo1nx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -49,3 +50,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Food" parent="." unique_id=220039143 instance=ExtResource("3_8gbba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.894)
+
+[node name="lettuce" parent="." unique_id=286160487 instance=ExtResource("4_jjvhh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1507179, 0, -2.7837503)
