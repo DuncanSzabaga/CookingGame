@@ -14,6 +14,20 @@ height = 0.1
 height = 0.1
 radius = 0.4
 
+[sub_resource type="GDScript" id="GDScript_i36i8"]
+script/source = "extends Node3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twli5"]
 albedo_color = Color(0.92021054, 0.68688047, 0.4052023, 1)
 
@@ -41,6 +55,7 @@ mesh = SubResource("CylinderMesh_xo5bu")
 shape = SubResource("CylinderShape3D_j4qko")
 
 [node name="Buns" type="Node3D" parent="Patties" unique_id=423674285]
+script = SubResource("GDScript_i36i8")
 
 [node name="BottomBunReg" type="StaticBody3D" parent="Patties/Buns" unique_id=1932232463]
 

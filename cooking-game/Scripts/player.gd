@@ -10,6 +10,7 @@ var speed: float = 6.0
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var pointer: Sprite3D = $Head/Camera3D/Pointer
+@onready var interaction_ray: RayCast3D = $Head/Camera3D/RayCast3D
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

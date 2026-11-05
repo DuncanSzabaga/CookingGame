@@ -26,3 +26,7 @@ current = true
 transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, 0, 0, -0.1)
 modulate = Color(1, 1, 1, 0.4509804)
 texture = ExtResource("2_cvnsp")
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D/Pointer" unique_id=26884106]
+target_position = Vector3(0, 0, -3)
+collide_with_areas = true
