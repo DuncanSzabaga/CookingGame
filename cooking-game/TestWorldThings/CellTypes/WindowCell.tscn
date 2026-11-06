@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://m01iqtauisyo"]
+
+[ext_resource type="Script" uid="uid://c0ypvipwunx24" path="res://Scenes/cell.gd" id="1_28fji"]
+[ext_resource type="ArrayMesh" uid="uid://cyr6k47d16ouw" path="res://TestWorldThings/window.tres" id="2_eqsfg"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b6l7d"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_geerw"]
+flip_faces = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jcxyn"]
+flip_faces = true
+orientation = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j5w43"]
+flip_faces = true
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fsvgx"]
+orientation = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b6l7d"]
+
+[node name="Cell" type="Area3D" unique_id=614343279]
+script = ExtResource("1_28fji")
+
+[node name="BottomFace" type="MeshInstance3D" parent="." unique_id=2090146687]
+mesh = SubResource("PlaneMesh_b6l7d")
+
+[node name="TopFace" type="MeshInstance3D" parent="." unique_id=396989123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("PlaneMesh_geerw")
+
+[node name="NorthFace" type="MeshInstance3D" parent="." unique_id=1208686967]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1, -1)
+mesh = ExtResource("2_eqsfg")
+
+[node name="EastFace" type="MeshInstance3D" parent="." unique_id=793734188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+mesh = SubResource("PlaneMesh_jcxyn")
+
+[node name="SouthFace" type="MeshInstance3D" parent="." unique_id=466289326]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+mesh = SubResource("PlaneMesh_j5w43")
+
+[node name="WestFace" type="MeshInstance3D" parent="." unique_id=541078648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+mesh = SubResource("PlaneMesh_fsvgx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1963391265]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+shape = SubResource("BoxShape3D_b6l7d")

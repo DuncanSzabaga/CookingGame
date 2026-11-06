@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd4jkwatfpmb2"
-path="res://.godot/imported/floor-test.png-d189121db6c63772a109927a9b4a5e88.ctex"
+uid="uid://caunva2xlr8rs"
+path="res://.godot/imported/grill.png-98834870fa6d6e4095ace937fa21604f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TestWorldThings/floor-test.png"
-dest_files=["res://.godot/imported/floor-test.png-d189121db6c63772a109927a9b4a5e88.ctex"]
+source_file="res://TestWorldThings/CellTypes/grill.png"
+dest_files=["res://.godot/imported/grill.png-98834870fa6d6e4095ace937fa21604f.ctex"]
 
 [params]
 
