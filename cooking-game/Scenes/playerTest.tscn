@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bkx626tkbf5t0"]
+
+[ext_resource type="Script" uid="uid://yatpxmnpvyjx" path="res://Scenes/playerT.gd" id="1_he80n"]
+[ext_resource type="Script" uid="uid://d180h5gmihr2k" path="res://Scenes/camera_holder.gd" id="1_yqxwx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nv3ht"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_iaa7r"]
+
+[node name="PlayerTest" type="Node3D" unique_id=819322259]
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1323502236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055350184, 0, 0)
+script = ExtResource("1_he80n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1028882411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1920929e-07, 0)
+shape = SubResource("CapsuleShape3D_nv3ht")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=132196527]
+mesh = SubResource("CapsuleMesh_iaa7r")
+
+[node name="CameraHolder" type="Node3D" parent="Player" unique_id=1977890986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30516613, 0)
+script = ExtResource("1_yqxwx")
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraHolder" unique_id=1579719108]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017298222, 0.58108205, 0.08217645)
+
+[node name="HoldPoint" type="Node3D" parent="Player/CameraHolder/Camera3D" unique_id=749797893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29637575, -2.1149366)
+
+[node name="RayCast3D" type="RayCast3D" parent="Player/CameraHolder/Camera3D" unique_id=169583573]
+target_position = Vector3(0, 0, -10)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1457948171]
+
+[node name="crossHair" type="Label" parent="CanvasLayer" unique_id=1657617135]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -34.5
+offset_right = 20.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
