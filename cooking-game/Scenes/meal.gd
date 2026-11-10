@@ -12,32 +12,38 @@ func add_food_to_array(food_item):
 	food_item.remove_from_group("Food")
 	food_array.append(food_item.food_type)
 
-
 func grade(order: Array):
-	var score = 0
-	var leftover = food_array.duplicate() #copy so it doesnt get messed up in grading
-#correct ingredients
-	for item in order:
-		if leftover.has(item):
-			score+= 10
-			leftover.erase(item)
-		else:
-			#if not neg points
-			score -= 10
-#if player adds anything they weren't suppose to
-#aka if player added cheese to a burger that was suppose to have no cheese
-	for item in leftover:
-		score-= 5
-#correct ordering
-#realistically burger wouldnt look like meat bun meat
-	for i in range(min(food_array.size(), order.size())):
-		if food_array[i] == order[i]:
-			score += 5
+	var score = 0.0
+	var perfect_score = 0
+	var meal_check = food_array.duplicate()
+	var loop_counter = 0
 	
-	if food_array.size() >= 2 and food_array[0] == Food.FOOD_TYPES.BUN and food_array[-1] == Food.FOOD_TYPES.BUN:
-		score += 10
-	else:
-		score -= 20
-
+	for food in order:
+		perfect_score += 3
+		if meal_check.has(food): #If the food is on the plate
+			score += 3
+			meal_check.erase(food)
+		else: #If the food is not on the plate
+			score -= 2
+	for food in meal_check: #If food is on the plate that shouldn't be
+		score -= 3
+	
+	if food_array.size() == order.size():
+		for food in order:
+			perfect_score += 5
+			if food_array[loop_counter] == order[loop_counter]:
+				score += 10
+			else:
+				score -= 9
+			loop_counter += 1
+	else: #If the meal size is different from the order size
+		if food_array[0] != 0:
+			score -= 10
+		if food_array[food_array.size()-1] != 0:
+			score -= 10
+			
+	if not food_array.has(1): #If the meal has no patty
+		score = 0
+	
+	score = ceil(((max(0, score)) / perfect_score) * 100)
 	print(score)
-	return score

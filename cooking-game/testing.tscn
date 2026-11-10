@@ -41,6 +41,10 @@ food_type = 1
 [node name="Food3" parent="." unique_id=1137604120 instance=ExtResource("2_lc7k4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5196046, 2.435664, -5.0381813)
 
+[node name="Food4" parent="." unique_id=2019484496 instance=ExtResource("2_lc7k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8016791, 2.8869956, -6.1280637)
+food_type = 2
+
 [node name="PlayerTest" parent="." unique_id=819322259 instance=ExtResource("4_ybq6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.214668, 0)
 

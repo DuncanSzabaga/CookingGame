@@ -34,6 +34,8 @@ func _physics_process(delta: float) -> void:
 			if raycast.get_collider():
 				var meal_target = raycast.get_collider()
 				if not meal_target is Meal and not meal_target.get_parent() is Meal:
+					heldObject.collision_mask = 1
+					heldObject = null
 					return
 				if meal_target is Food:
 					meal_target = meal_target.get_parent()
