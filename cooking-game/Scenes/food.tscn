@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bbsel1d30850u"]
 
 [ext_resource type="Script" uid="uid://b5u2m3mp70kqo" path="res://Scenes/food.gd" id="1_h4kkx"]
-[ext_resource type="CylinderMesh" uid="uid://c8oyh7bs28q8f" path="res://Assets/ingredients/bottom_bun.tres" id="3_1y3cv"]
+[ext_resource type="BoxMesh" uid="uid://c4yjrg0ktirfu" path="res://Assets/ingredients/cheese.tres" id="2_fhto3"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_b6l7d"]
 height = 0.1
@@ -11,7 +11,7 @@ radius = 0.41
 script = ExtResource("1_h4kkx")
 
 [node name="FoodItem" type="MeshInstance3D" parent="." unique_id=659124121]
-mesh = ExtResource("3_1y3cv")
+mesh = ExtResource("2_fhto3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1885556597]
 shape = SubResource("CylinderShape3D_b6l7d")
