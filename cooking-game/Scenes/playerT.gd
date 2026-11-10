@@ -31,13 +31,25 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("left_click"):
 		if heldObject:
 			heldObject.freeze = false
+			if raycast.get_collider():
+				var meal_target = raycast.get_collider()
+				if not meal_target is Meal and not meal_target.get_parent() is Meal:
+					return
+				if meal_target is Food:
+					meal_target = meal_target.get_parent()
+				meal_target.add_food_to_array(heldObject)
+				print(meal_target.food_array)
 			heldObject.collision_mask = 1
 			heldObject = null
 		else:
 			if raycast.get_collider():
 				heldObject = raycast.get_collider()
-				heldObject.freeze = true
-				heldObject.collision_mask = 0
+				#print(heldObject.get_parent())
+				if heldObject.is_in_group("Food"):
+					heldObject.freeze = true
+					heldObject.collision_mask = 0
+				else:
+					heldObject = null
 	if heldObject:
 		heldObject.global_position = holdPosition.global_position
 			

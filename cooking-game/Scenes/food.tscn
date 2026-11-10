@@ -1,66 +1,17 @@
 [gd_scene format=3 uid="uid://bbsel1d30850u"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gbba"]
-albedo_color = Color(0.42393452, 0.17580235, 9.62615e-08, 1)
-normal_enabled = true
+[ext_resource type="Script" uid="uid://b5u2m3mp70kqo" path="res://Scenes/food.gd" id="1_h4kkx"]
+[ext_resource type="CylinderMesh" uid="uid://c8oyh7bs28q8f" path="res://Assets/ingredients/bottom_bun.tres" id="3_1y3cv"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_xo5bu"]
-material = SubResource("StandardMaterial3D_8gbba")
-top_radius = 0.4
-bottom_radius = 0.4
-height = 0.1
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_j4qko"]
-height = 0.1
-radius = 0.4
-
-[sub_resource type="GDScript" id="GDScript_i36i8"]
-script/source = "extends Node3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twli5"]
-albedo_color = Color(0.92021054, 0.68688047, 0.4052023, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_jer5r"]
-material = SubResource("StandardMaterial3D_twli5")
-top_radius = 0.41
-bottom_radius = 0.41
-height = 0.1
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_i36i8"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b6l7d"]
 height = 0.1
 radius = 0.41
 
-[node name="Food" type="Node3D" unique_id=220039143]
+[node name="Food" type="RigidBody3D" unique_id=2019484496 groups=["Food"]]
+script = ExtResource("1_h4kkx")
 
-[node name="Patties" type="Node3D" parent="." unique_id=1307447733]
+[node name="FoodItem" type="MeshInstance3D" parent="." unique_id=659124121]
+mesh = ExtResource("3_1y3cv")
 
-[node name="PattyReg" type="StaticBody3D" parent="Patties" unique_id=490054972]
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Patties/PattyReg" unique_id=1180538691]
-mesh = SubResource("CylinderMesh_xo5bu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Patties/PattyReg" unique_id=1330212824]
-shape = SubResource("CylinderShape3D_j4qko")
-
-[node name="Buns" type="Node3D" parent="Patties" unique_id=423674285]
-script = SubResource("GDScript_i36i8")
-
-[node name="BottomBunReg" type="StaticBody3D" parent="Patties/Buns" unique_id=1932232463]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Patties/Buns/BottomBunReg" unique_id=179249068]
-mesh = SubResource("CylinderMesh_jer5r")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Patties/Buns/BottomBunReg" unique_id=971424257]
-shape = SubResource("CylinderShape3D_i36i8")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1885556597]
+shape = SubResource("CylinderShape3D_b6l7d")

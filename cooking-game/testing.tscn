@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bbsel1d30850u" path="res://Scenes/food.tscn" id="2_lc7k4"]
 [ext_resource type="PackedScene" uid="uid://pu8ewbm6yhts" path="res://Scenes/foodScenes/lettuce.tscn" id="3_jn4p2"]
 [ext_resource type="PackedScene" uid="uid://bkx626tkbf5t0" path="res://Scenes/playerTest.tscn" id="4_ybq6y"]
+[ext_resource type="PackedScene" uid="uid://beh5k7nckfs7i" path="res://Scenes/Meal.tscn" id="5_lc7k4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bo1nx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -30,6 +31,16 @@ orientation = 1
 
 [node name="testing" type="Node3D" unique_id=181788057]
 
+[node name="Food2" parent="." unique_id=1736497826 instance=ExtResource("2_lc7k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46614265, 3.1567278, -5.5483313)
+
+[node name="Food" parent="." unique_id=220039143 instance=ExtResource("2_lc7k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5783639, -4.4112215)
+food_type = 1
+
+[node name="Food3" parent="." unique_id=1137604120 instance=ExtResource("2_lc7k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5196046, 2.435664, -5.0381813)
+
 [node name="PlayerTest" parent="." unique_id=819322259 instance=ExtResource("4_ybq6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.214668, 0)
 
@@ -48,9 +59,8 @@ shape = SubResource("WorldBoundaryShape3D_xo5bu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/CollisionShape3D" unique_id=1697506571]
 mesh = SubResource("QuadMesh_xo5bu")
 
-[node name="Food" parent="." unique_id=220039143 instance=ExtResource("2_lc7k4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.894)
-
 [node name="Lettuce" parent="." unique_id=1682145799 instance=ExtResource("3_jn4p2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.150583, 1.6796999, -2.9274833)
-collision_mask = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7709332, 1.6796999, -2.9274833)
+
+[node name="Meal" parent="." unique_id=1104944120 instance=ExtResource("5_lc7k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1917791, 1.4485362, -3.070771)
