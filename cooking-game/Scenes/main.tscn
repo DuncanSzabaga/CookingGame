@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dn5ap60quda7u" path="res://Scenes/player.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://bbsel1d30850u" path="res://Scenes/food.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://pu8ewbm6yhts" path="res://Scenes/foodScenes/lettuce.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://biji5626soh58" path="res://Scenes/truck.tscn" id="5_kry3j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bo1nx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -32,6 +33,7 @@ orientation = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=575541951]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 0.688
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=24033122]
@@ -46,10 +48,13 @@ shape = SubResource("WorldBoundaryShape3D_xo5bu")
 mesh = SubResource("QuadMesh_xo5bu")
 
 [node name="Player" parent="." unique_id=772848290 instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Food" parent="." unique_id=220039143 instance=ExtResource("3_8gbba")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.894)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5882592, -2.2997293)
 
 [node name="Lettuce" parent="." unique_id=1682145799 instance=ExtResource("4_jjvhh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0557821, 0.8341269, -2.0105753)
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -0.061291456, 1.2144084, -2.2457137)
+
+[node name="Truck" parent="." unique_id=1179344976 instance=ExtResource("5_kry3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
