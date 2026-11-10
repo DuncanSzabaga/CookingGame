@@ -53,8 +53,16 @@ func _physics_process(delta: float) -> void:
 	if heldObject:
 		heldObject.global_position = holdPosition.global_position
 			
-	
-
+	#setting up how it grades the meal
+	if Input.is_action_just_pressed("grade"): #the G key (thought g --> grade)
+		var target = raycast.get_collider()
+		if target:
+			if target is Food:
+				target = target.get_parent()
+			if target is Meal:
+				#grade bun.patty,bun
+				var test_order = [Food.FOOD_TYPES.BUN, Food.FOOD_TYPES.PATTY, Food.FOOD_TYPES.BUN]
+				target.grade(test_order)
 	
 	var basis: Basis = camera.global_transform.basis
 
