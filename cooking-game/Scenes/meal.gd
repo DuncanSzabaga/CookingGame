@@ -30,7 +30,7 @@ func grade(order: Array):
 	
 	if food_array.size() == order.size():
 		for food in order:
-			perfect_score += 5
+			perfect_score += 10
 			if food_array[loop_counter] == order[loop_counter]:
 				score += 10
 			else:
