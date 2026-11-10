@@ -9,6 +9,7 @@ var _dir := Vector3.ZERO
 @onready var camera = $CameraHolder
 @onready var raycast = camera.get_node("Camera3D/RayCast3D")
 @onready var holdPosition = camera.get_node("Camera3D/HoldPoint")
+@onready var interactPrompt = get_node("../CanvasLayer/interactPrompt")
 
 
 func _physics_process(delta: float) -> void:
@@ -66,6 +67,10 @@ func _physics_process(delta: float) -> void:
 				var test_order = [Food.FOOD_TYPES.BUN, Food.FOOD_TYPES.PATTY, Food.FOOD_TYPES.BUN]
 				target.grade(test_order)
 	
+	var lookingAt = raycast.get_collider()
+	interactPrompt.visible = lookingAt is Customer
+	if lookingAt is Customer and Input.is_action_just_pressed("interact"):
+		lookingAt.show_order()
 	var basis: Basis = camera.global_transform.basis
 
 	_dir = Vector3.ZERO

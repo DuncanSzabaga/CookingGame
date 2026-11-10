@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://pu8ewbm6yhts" path="res://Scenes/foodScenes/lettuce.tscn" id="3_jn4p2"]
 [ext_resource type="PackedScene" uid="uid://bkx626tkbf5t0" path="res://Scenes/playerTest.tscn" id="4_ybq6y"]
 [ext_resource type="PackedScene" uid="uid://beh5k7nckfs7i" path="res://Scenes/Meal.tscn" id="5_lc7k4"]
+[ext_resource type="PackedScene" uid="uid://bi1uxhvjm422v" path="res://Scenes/customer.tscn" id="6_jn4p2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bo1nx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -68,3 +69,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7709332, 1.6796999, -2.9274
 
 [node name="Meal" parent="." unique_id=1104944120 instance=ExtResource("5_lc7k4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1917791, 1.4485362, -3.070771)
+
+[node name="Customer" parent="." unique_id=1323502236 instance=ExtResource("6_jn4p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0477295, 8.5967455)
