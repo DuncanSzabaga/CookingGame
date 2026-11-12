@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dl5bi2bqbgsd0"]
+
+[ext_resource type="Script" uid="uid://d2ifucmv35hdm" path="res://mainLevel.gd" id="1_05as6"]
+[ext_resource type="PackedScene" uid="uid://biji5626soh58" path="res://Scenes/truck.tscn" id="1_bhu08"]
+[ext_resource type="PackedScene" uid="uid://bkx626tkbf5t0" path="res://Scenes/playerTest.tscn" id="2_05as6"]
+[ext_resource type="PackedScene" uid="uid://bi1uxhvjm422v" path="res://Scenes/customer.tscn" id="3_5ymk8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iaa7r"]
+size = Vector3(60, 1, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iaa7r"]
+size = Vector3(60, 1, 60)
+
+[node name="MainLevel" type="Node3D" unique_id=1696884663]
+script = ExtResource("1_05as6")
+customer_scene = ExtResource("3_5ymk8")
+
+[node name="Truck" parent="." unique_id=1179344976 instance=ExtResource("1_bhu08")]
+
+[node name="PlayerTest" parent="." unique_id=819322259 instance=ExtResource("2_05as6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9739914, 0)
+
+[node name="spawnPoint" type="Marker3D" parent="." unique_id=2112631176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -12.391109)
+
+[node name="customerWindowPoint" type="Marker3D" parent="." unique_id=1723324872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0621948, 1, -4.6025076)
+
+[node name="waitTime" type="Timer" parent="." unique_id=761201027]
+wait_time = 20.0
+autostart = true
+
+[node name="ground" type="StaticBody3D" parent="." unique_id=149862854]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground" unique_id=1556487652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_iaa7r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground" unique_id=130269555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_iaa7r")
