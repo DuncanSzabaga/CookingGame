@@ -14,7 +14,7 @@ func _ready() -> void:
 	order = menuItem["order"]
 	var text = ""
 	for item in order:
-		text += Food.FOOD_TYPES.keys()[item] + "\n"
+		text += Food.FOOD_TYPES.keys()[item] + " "
 		pass
 	$Label3D.text = text
 	
@@ -26,11 +26,7 @@ func interact():
 		orderWasTaken = true
 		orderTaken.emit(self)
 
-func walkToWindow (pos: Vector3) -> void:
-	targetPos = pos
-	hasTarget = true
-	
-	
+
 func walkTo(pos: Vector3):
 	targetPos = pos
 	hasTarget = true
