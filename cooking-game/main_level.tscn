@@ -26,6 +26,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -12.391109)
 [node name="customerWindowPoint" type="Marker3D" parent="." unique_id=1723324872]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0621948, 1, -4.6025076)
 
+[node name="customerWaitingArea" type="Marker3D" parent="." unique_id=2014622001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.727202, 1, -4.6025076)
+
 [node name="waitTime" type="Timer" parent="." unique_id=761201027]
 wait_time = 20.0
 autostart = true

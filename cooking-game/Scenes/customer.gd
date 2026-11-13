@@ -1,25 +1,39 @@
 extends CharacterBody3D
 class_name Customer
 
-var order = [Food.FOOD_TYPES.BUN, Food.FOOD_TYPES.PATTY, Food.FOOD_TYPES.CHEESE, Food.FOOD_TYPES.BUN]
-var speed := 3
+var menuItem
+var order = []
+var speed = 3
 var targetPos: Vector3
-var hasTarget := false
+var hasTarget = false
+signal orderTaken(customer)
+var orderWasTaken = false
+var orderShown = false
 func _ready() -> void:
+	menuItem = Meal.menuList.pick_random()
+	order = menuItem["order"]
 	var text = ""
 	for item in order:
 		text += Food.FOOD_TYPES.keys()[item] + "\n"
 		pass
 	$Label3D.text = text
-func show_order() -> void:
-	$Label3D.visible = true
+	
+func interact():
+	if not orderShown:
+		orderShown = true
+		$Label3D.visible = true
+	elif not orderWasTaken:
+		orderWasTaken = true
+		orderTaken.emit(self)
 
 func walkToWindow (pos: Vector3) -> void:
 	targetPos = pos
 	hasTarget = true
 	
 	
-	
+func walkTo(pos: Vector3):
+	targetPos = pos
+	hasTarget = true
 	
 	
 func _physics_process(delta: float) -> void:
