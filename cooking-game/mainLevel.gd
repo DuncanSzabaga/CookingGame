@@ -4,12 +4,23 @@ extends Node3D
 @onready var waitTime = $waitTime
 @onready var windowPoint = $customerWindowPoint
 @onready var waitingArea = $customerWaitingArea
+@onready var dayTimer = $dayTimer
+@onready var dayClock = $clockCanvas/dayClock
 var activeOrders = []
 func _ready() -> void:
 	waitTime.timeout.connect(spawnCustomer)
+	dayTimer.timeout.connect(endDay) 
 	spawnCustomer() 
 
-
+func _process(delta: float) -> void:
+	var secondsLeft = int(dayTimer.time_left)
+	var minutes = secondsLeft / 60
+	var seconds = secondsLeft % 60
+	dayClock.text = "Time left: " + str(minutes) + ":" + str(seconds)
+	
+func endDay():
+	waitTime.stop()
+	
 func spawnCustomer():
 	var customer = customer_scene.instantiate()
 	add_child(customer)
