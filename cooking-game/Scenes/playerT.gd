@@ -1,4 +1,3 @@
-
 extends CharacterBody3D
 
 var walk_speed := 8.0
@@ -10,26 +9,26 @@ var _dir := Vector3.ZERO
 @onready var raycast = camera.get_node("Camera3D/RayCast3D")
 @onready var holdPosition = camera.get_node("Camera3D/HoldPoint")
 @onready var interactPrompt = get_node("../CanvasLayer/interactPrompt")
+@onready var cross_hair: Label = $"../CanvasLayer/crossHair"
 
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	cross_hair.visible = true
 
-func _physics_process(delta: float) -> void:
-	var input := Vector2.ZERO
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		cross_hair.visible = false
+		interactPrompt.visible = false
+		return
 
-	if Input.is_action_pressed("up"):
-		input.y += 1
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		if event.is_action_pressed("left_click"):
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			cross_hair.visible = true
+		return
 
-	if Input.is_action_pressed("down"):
-		input.y -= 1
-
-	if Input.is_action_pressed("right"):
-		input.x += 1
-
-	if Input.is_action_pressed("left"):
-		input.x -= 1
-
-	input = input.normalized()
-	
-	if Input.is_action_just_pressed("left_click"):
+	if event.is_action_pressed("left_click"):
 		if heldObject:
 			heldObject.freeze = false
 			if raycast.get_collider():
@@ -53,20 +52,49 @@ func _physics_process(delta: float) -> void:
 					heldObject.collision_mask = 0
 				else:
 					heldObject = null
-	if heldObject:
-		heldObject.global_position = holdPosition.global_position
-			
-	#setting up how it grades the meal
-	if Input.is_action_just_pressed("grade"): #the G key (thought g --> grade)
+
+	# setting up how it grades the meal
+	if event.is_action_pressed("grade"): # the G key (thought g --> grade)
 		var target = raycast.get_collider()
 		if target:
 			if target is Food:
 				target = target.get_parent()
 			if target is Meal:
-				#grade bun.patty,bun
+				# grade bun.patty,bun
 				var test_order = [Food.FOOD_TYPES.BUN, Food.FOOD_TYPES.PATTY, Food.FOOD_TYPES.BUN]
 				target.grade(test_order)
-	
+
+	if event.is_action_pressed("interact"):
+		var lookingAt = raycast.get_collider()
+		if lookingAt is Customer and not lookingAt.orderWasTaken:
+			lookingAt.interact()
+
+
+func _physics_process(delta: float) -> void:
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		velocity = Vector3.ZERO
+		interactPrompt.visible = false
+		return
+
+	var input := Vector2.ZERO
+
+	if Input.is_action_pressed("up"):
+		input.y += 1
+
+	if Input.is_action_pressed("down"):
+		input.y -= 1
+
+	if Input.is_action_pressed("right"):
+		input.x += 1
+
+	if Input.is_action_pressed("left"):
+		input.x -= 1
+
+	input = input.normalized()
+
+	if heldObject:
+		heldObject.global_position = holdPosition.global_position
+
 	var lookingAt = raycast.get_collider()
 	if lookingAt is Customer and not lookingAt.orderWasTaken:
 		interactPrompt.visible = true
@@ -74,10 +102,9 @@ func _physics_process(delta: float) -> void:
 			interactPrompt.text = "[E] to confirm order"
 		else:
 			interactPrompt.text = "[E] to interact"
-		if Input.is_action_just_pressed("interact"):
-			lookingAt.interact()
 	else:
 		interactPrompt.visible = false
+
 	var basis: Basis = camera.global_transform.basis
 
 	_dir = Vector3.ZERO
