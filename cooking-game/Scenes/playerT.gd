@@ -68,9 +68,16 @@ func _physics_process(delta: float) -> void:
 				target.grade(test_order)
 	
 	var lookingAt = raycast.get_collider()
-	interactPrompt.visible = lookingAt is Customer
-	if lookingAt is Customer and Input.is_action_just_pressed("interact"):
-		lookingAt.show_order()
+	if lookingAt is Customer and not lookingAt.orderWasTaken:
+		interactPrompt.visible = true
+		if lookingAt.orderShown:
+			interactPrompt.text = "[E] to confirm order"
+		else:
+			interactPrompt.text = "[E] to interact"
+		if Input.is_action_just_pressed("interact"):
+			lookingAt.interact()
+	else:
+		interactPrompt.visible = false
 	var basis: Basis = camera.global_transform.basis
 
 	_dir = Vector3.ZERO

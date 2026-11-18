@@ -3,6 +3,12 @@ class_name Meal
 
 var food_array = []
 
+const menuList = [
+	{"name": "Plain Burger", "order": [Food.FOOD_TYPES.BUN, Food.FOOD_TYPES.PATTY, Food.FOOD_TYPES.BUN]},
+	{"name": "Cheeseburger", "order": [Food.FOOD_TYPES.BUN, Food.FOOD_TYPES.PATTY, Food.FOOD_TYPES.CHEESE, Food.FOOD_TYPES.BUN]},
+	{"name": "Regular burger", "order": [Food.FOOD_TYPES.BUN, Food.FOOD_TYPES.PATTY, Food.FOOD_TYPES.CHEESE, Food.FOOD_TYPES.LETTUCE, Food.FOOD_TYPES.BUN]},
+]
+
 func add_food_to_array(food_item):
 	food_item.get_parent().remove_child(food_item)
 	add_child(food_item)
