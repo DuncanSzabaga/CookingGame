@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bmaecic4ektqe"]
+
+[ext_resource type="Script" uid="uid://85tumiaj7eci" path="res://Scenes/objects/grill.gd" id="1_0eya5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b6l7d"]
+size = Vector3(3, 1, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_11ixh"]
+size = Vector3(3, 1, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_geerw"]
+size = Vector3(2.95, 0.005, 2.95)
+
+[node name="Grill" type="StaticBody3D" unique_id=2003931701]
+script = ExtResource("1_0eya5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=936737443]
+mesh = SubResource("BoxMesh_b6l7d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1945820910]
+shape = SubResource("BoxShape3D_11ixh")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=257784582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2043182270]
+shape = SubResource("BoxShape3D_geerw")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

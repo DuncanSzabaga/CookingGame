@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d026xnbxvapv4"]
 
 [ext_resource type="Texture2D" uid="uid://bgf4fynnkqd5n" path="res://icon.svg" id="1_kj3p2"]
+[ext_resource type="PackedScene" uid="uid://bmaecic4ektqe" path="res://Scenes/objects/grill.tscn" id="1_ybq6y"]
 [ext_resource type="PackedScene" uid="uid://bbsel1d30850u" path="res://Scenes/food.tscn" id="2_lc7k4"]
 [ext_resource type="PackedScene" uid="uid://pu8ewbm6yhts" path="res://Scenes/foodScenes/lettuce.tscn" id="3_jn4p2"]
 [ext_resource type="PackedScene" uid="uid://bkx626tkbf5t0" path="res://Scenes/playerTest.tscn" id="4_ybq6y"]
@@ -32,6 +33,9 @@ orientation = 1
 
 [node name="testing" type="Node3D" unique_id=181788057]
 
+[node name="Grill" parent="." unique_id=2003931701 instance=ExtResource("1_ybq6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -10.792)
+
 [node name="Food2" parent="." unique_id=1736497826 instance=ExtResource("2_lc7k4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46614265, 3.1567278, -5.5483313)
 
@@ -43,8 +47,8 @@ food_type = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5196046, 2.435664, -5.0381813)
 
 [node name="Food4" parent="." unique_id=2019484496 instance=ExtResource("2_lc7k4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8016791, 2.8869956, -6.1280637)
-food_type = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8572345, 2.8869956, -4.831955)
+food_type = 4
 
 [node name="PlayerTest" parent="." unique_id=819322259 instance=ExtResource("4_ybq6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.214668, 0)

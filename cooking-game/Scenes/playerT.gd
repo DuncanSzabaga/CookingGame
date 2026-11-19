@@ -61,7 +61,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				target = target.get_parent()
 			if target is Meal:
 				# grade bun.patty,bun
-				var test_order = [Food.FOOD_TYPES.BUN, Food.FOOD_TYPES.PATTY, Food.FOOD_TYPES.BUN]
+				var test_order = [Food.FOOD_TYPES.BUN, Food.FOOD_TYPES.COOKED_PATTY, Food.FOOD_TYPES.BUN]
 				target.grade(test_order)
 
 	if event.is_action_pressed("interact"):
