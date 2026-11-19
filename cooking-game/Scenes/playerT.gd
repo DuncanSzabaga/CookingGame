@@ -50,6 +50,16 @@ func _unhandled_input(event: InputEvent) -> void:
 				if heldObject.is_in_group("Food"):
 					heldObject.freeze = true
 					heldObject.collision_mask = 0
+				elif heldObject.is_in_group("FoodBox"):
+					var foodbox_type = heldObject.food_type
+					var food = preload("uid://bbsel1d30850u").instantiate()
+					food.food_type = foodbox_type
+					food.update_food()
+					get_tree().current_scene.add_child(food)
+					heldObject = food
+					heldObject.freeze = true
+					heldObject.collision_mask = 0
+					pass
 				else:
 					heldObject = null
 

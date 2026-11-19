@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://d026xnbxvapv4"]
 
+[ext_resource type="PackedScene" uid="uid://cjcayhs1473m2" path="res://Scenes/objects/box.tscn" id="1_11ixh"]
 [ext_resource type="Texture2D" uid="uid://bgf4fynnkqd5n" path="res://icon.svg" id="1_kj3p2"]
 [ext_resource type="PackedScene" uid="uid://bmaecic4ektqe" path="res://Scenes/objects/grill.tscn" id="1_ybq6y"]
 [ext_resource type="PackedScene" uid="uid://bbsel1d30850u" path="res://Scenes/food.tscn" id="2_lc7k4"]
-[ext_resource type="PackedScene" uid="uid://pu8ewbm6yhts" path="res://Scenes/foodScenes/lettuce.tscn" id="3_jn4p2"]
+[ext_resource type="PackedScene" uid="uid://dbkrf7x6c7hkt" path="res://Assets/ingredients/lettuce.glb" id="3_jn4p2"]
 [ext_resource type="PackedScene" uid="uid://bkx626tkbf5t0" path="res://Scenes/playerTest.tscn" id="4_ybq6y"]
 [ext_resource type="PackedScene" uid="uid://beh5k7nckfs7i" path="res://Scenes/Meal.tscn" id="5_lc7k4"]
 [ext_resource type="PackedScene" uid="uid://bi1uxhvjm422v" path="res://Scenes/customer.tscn" id="6_jn4p2"]
@@ -32,6 +33,9 @@ size = Vector2(40, 40)
 orientation = 1
 
 [node name="testing" type="Node3D" unique_id=181788057]
+
+[node name="Box" parent="." unique_id=1602549412 instance=ExtResource("1_11ixh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.638106, 0.82698584, 0)
 
 [node name="Grill" parent="." unique_id=2003931701 instance=ExtResource("1_ybq6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -10.792)

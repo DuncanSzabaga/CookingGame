@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://biji5626soh58"]
 
+[ext_resource type="PackedScene" uid="uid://bmaecic4ektqe" path="res://Scenes/objects/grill.tscn" id="1_0a3wb"]
+[ext_resource type="PackedScene" uid="uid://cjcayhs1473m2" path="res://Scenes/objects/box.tscn" id="1_ncoh0"]
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7nkkn"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_7nkkn"]
@@ -79,21 +82,21 @@ material = SubResource("StandardMaterial3D_mj58m")
 bottom_radius = 0.3
 height = 0.42175293
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jolu"]
-albedo_color = Color(0.4390491, 0.43904912, 0.43904912, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_mj58m"]
-material = SubResource("StandardMaterial3D_8jolu")
-size = Vector3(2.7, 1.55, 1.3)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r00ft"]
-albedo_color = Color(0.6460293, 0.6460289, 0.646029, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_8jolu"]
-material = SubResource("StandardMaterial3D_r00ft")
-size = Vector3(2.7, 1.55, 1.3)
-
 [node name="Truck" type="Node3D" unique_id=1179344976]
+
+[node name="Box" parent="." unique_id=1602549412 instance=ExtResource("1_ncoh0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2.8, -0.8)
+
+[node name="Box2" parent="." unique_id=1133977426 instance=ExtResource("1_ncoh0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2.8, 0.7)
+food_type = 1
+
+[node name="Box3" parent="." unique_id=1844983209 instance=ExtResource("1_ncoh0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.2, 0.7)
+
+[node name="Box4" parent="." unique_id=1997075685 instance=ExtResource("1_ncoh0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.2, -0.8)
+food_type = 5
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=160361454]
 
@@ -203,16 +206,5 @@ light_energy = 4.81
 area_range = 8.385
 area_attenuation = 1.701
 
-[node name="Grill" type="StaticBody3D" parent="." unique_id=1284833922]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5672941, 0, 2.4830065)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Grill" unique_id=1998687775]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13905, 0.23761249, -0.050354004)
-mesh = SubResource("BoxMesh_mj58m")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=917964674]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.567, 0, 2.48)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1557634689]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.139, 0.238, -0.05)
-mesh = SubResource("BoxMesh_8jolu")
+[node name="Grill" parent="." unique_id=2003931701 instance=ExtResource("1_0a3wb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3440607, 0.238, 2.380019)

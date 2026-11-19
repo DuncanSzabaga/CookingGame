@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cjcayhs1473m2"]
+
+[ext_resource type="Script" uid="uid://ma4bleiqpnvu" path="res://Scenes/objects/box.gd" id="1_y12ck"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b6l7d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b6l7d"]
+
+[node name="Box" type="StaticBody3D" unique_id=1602549412 groups=["FoodBox"]]
+script = ExtResource("1_y12ck")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=208232301]
+mesh = SubResource("BoxMesh_b6l7d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=177917694]
+shape = SubResource("BoxShape3D_b6l7d")
+
+[node name="food_label" type="Label3D" parent="." unique_id=940079733]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.5185319, 0, 0)
+text = "BURGER"

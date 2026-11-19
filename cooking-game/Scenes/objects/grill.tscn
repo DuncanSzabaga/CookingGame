@@ -1,27 +1,25 @@
 [gd_scene format=3 uid="uid://bmaecic4ektqe"]
 
 [ext_resource type="Script" uid="uid://85tumiaj7eci" path="res://Scenes/objects/grill.gd" id="1_0eya5"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_b6l7d"]
-size = Vector3(3, 1, 3)
+[ext_resource type="BoxMesh" uid="uid://kh60ph86jr64" path="res://grill.tres" id="2_5lubo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_11ixh"]
-size = Vector3(3, 1, 3)
+size = Vector3(2.7, 1.55, 1.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_geerw"]
-size = Vector3(2.95, 0.005, 2.95)
+size = Vector3(2.65, 0.005, 1.25)
 
 [node name="Grill" type="StaticBody3D" unique_id=2003931701]
 script = ExtResource("1_0eya5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=936737443]
-mesh = SubResource("BoxMesh_b6l7d")
+mesh = ExtResource("2_5lubo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1945820910]
 shape = SubResource("BoxShape3D_11ixh")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=257784582]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2043182270]
 shape = SubResource("BoxShape3D_geerw")
