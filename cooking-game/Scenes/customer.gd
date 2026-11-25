@@ -3,7 +3,6 @@ class_name Customer
 @onready var body: MeshInstance3D = $Body
 @onready var head: MeshInstance3D = $Body/Head
 
-
 var menuItem
 var order = []
 var speed = 3
@@ -31,12 +30,10 @@ func _ready() -> void:
 	
 func interact():
 	if not orderShown:
-		print("Showing order")
 		orderShown = true
 		$Label3D.visible = true
 	elif not orderWasTaken:
 		Colors.release_color(color)
-		print("Walking away")
 		orderWasTaken = true
 		orderTaken.emit(self)
 
