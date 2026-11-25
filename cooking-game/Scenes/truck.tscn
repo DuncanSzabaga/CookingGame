@@ -52,6 +52,9 @@ size = Vector2(8, 6)
 center_offset = Vector3(0, 3.5, 0)
 orientation = 1
 
+[sub_resource type="BoxMesh" id="BoxMesh_mj58m"]
+size = Vector3(8.3394165, 1, 6.2890625)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gyc6o"]
 albedo_color = Color(0.66068196, 0.16123757, 0.18838233, 1)
 
@@ -165,6 +168,10 @@ mesh = SubResource("BoxMesh_xo5bu")
 [node name="Ceiling" type="MeshInstance3D" parent="." unique_id=896452488]
 mesh = SubResource("QuadMesh_8jolu")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ceiling" unique_id=654952863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21322632, 4.151517, -0.12846136)
+mesh = SubResource("BoxMesh_mj58m")
+
 [node name="BackCounter" type="StaticBody3D" parent="." unique_id=1168890593]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BackCounter" unique_id=82042293]
@@ -202,7 +209,7 @@ mesh = SubResource("CylinderMesh_xo5bu")
 [node name="AreaLight3D" type="AreaLight3D" parent="Light" unique_id=1982729413]
 transform = Transform3D(1, 0, 0, 0, -0.0006164749, 0.9999998, 0, -0.9999998, -0.0006164749, -0.021714091, 0.6129565, 0)
 light_color = Color(1, 0.88044375, 0.6421054, 1)
-light_energy = 4.81
+light_energy = 9.699
 area_range = 8.385
 area_attenuation = 1.701
 

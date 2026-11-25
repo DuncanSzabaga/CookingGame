@@ -1,5 +1,8 @@
 extends CharacterBody3D
 class_name Customer
+@onready var body: MeshInstance3D = $Body
+@onready var head: MeshInstance3D = $Body/Head
+
 
 var menuItem
 var order = []
@@ -9,7 +12,15 @@ var hasTarget = false
 signal orderTaken(customer)
 var orderWasTaken = false
 var orderShown = false
+var material = StandardMaterial3D.new()
+var color: Color = Color.WHITE
+
 func _ready() -> void:
+	color = Colors.get_color()
+	material.albedo_color = color
+	head.material_override = material
+	body.material_override = material
+	
 	menuItem = Meal.menuList.pick_random()
 	order = menuItem["order"]
 	var text = ""
@@ -20,9 +31,12 @@ func _ready() -> void:
 	
 func interact():
 	if not orderShown:
+		print("Showing order")
 		orderShown = true
 		$Label3D.visible = true
 	elif not orderWasTaken:
+		Colors.release_color(color)
+		print("Walking away")
 		orderWasTaken = true
 		orderTaken.emit(self)
 

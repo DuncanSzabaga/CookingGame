@@ -5,6 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://bkx626tkbf5t0" path="res://Scenes/playerTest.tscn" id="2_05as6"]
 [ext_resource type="PackedScene" uid="uid://bi1uxhvjm422v" path="res://Scenes/customer.tscn" id="3_5ymk8"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_05as6"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_5ymk8"]
+sky_material = SubResource("ProceduralSkyMaterial_05as6")
+
+[sub_resource type="Environment" id="Environment_4mnpp"]
+background_mode = 2
+sky = SubResource("Sky_5ymk8")
+glow_enabled = true
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_iaa7r"]
 size = Vector3(60, 1, 60)
 
@@ -14,6 +26,13 @@ size = Vector3(60, 1, 60)
 [node name="MainLevel" type="Node3D" unique_id=1696884663]
 script = ExtResource("1_05as6")
 customer_scene = ExtResource("3_5ymk8")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1816802059]
+environment = SubResource("Environment_4mnpp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1441338271]
+transform = Transform3D(0.7108661, 0.6981408, 0.085257664, -0.054284252, -0.06639735, 0.99631554, 0.70122933, -0.712875, -0.009301571, 10.069791, -0.23712921, 24.578724)
+shadow_enabled = true
 
 [node name="Truck" parent="." unique_id=1179344976 instance=ExtResource("1_bhu08")]
 
@@ -30,7 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0621948, 1, -4.6025076)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.727202, 1, -4.6025076)
 
 [node name="waitTime" type="Timer" parent="." unique_id=761201027]
-wait_time = 20.0
+wait_time = 2.0
 autostart = true
 
 [node name="ground" type="StaticBody3D" parent="." unique_id=149862854]

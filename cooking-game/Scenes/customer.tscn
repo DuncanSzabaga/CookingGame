@@ -5,6 +5,18 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nv3ht"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_iaa7r"]
+radius = 0.4008789
+height = 1.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_xo5bu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mj58m"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xo5bu"]
+material = SubResource("StandardMaterial3D_mj58m")
+radius = 0.0546875
+height = 0.18734741
 
 [node name="Customer" type="CharacterBody3D" unique_id=1323502236 groups=["Customer"]]
 script = ExtResource("1_fp685")
@@ -12,8 +24,21 @@ script = ExtResource("1_fp685")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1028882411]
 shape = SubResource("CapsuleShape3D_nv3ht")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=132196527]
+[node name="Body" type="MeshInstance3D" parent="." unique_id=132196527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2533543, 0)
 mesh = SubResource("CapsuleMesh_iaa7r")
+
+[node name="Head" type="MeshInstance3D" parent="Body" unique_id=1649869400]
+transform = Transform3D(0.022311049, 0, -0.8997234, 0, 0.9, 0, 0.8997234, 0, 0.022311049, 0, 0.9813398, 0)
+mesh = SubResource("SphereMesh_xo5bu")
+
+[node name="LeftEye" type="MeshInstance3D" parent="Body/Head" unique_id=1092588052]
+transform = Transform3D(1.1666842, -0.28079852, 1.8626451e-09, 0.28079855, 1.1666843, 0, -3.7252903e-09, 9.313226e-10, 1.2, 0.43239844, 0.102723, 0.19800183)
+mesh = SubResource("CapsuleMesh_xo5bu")
+
+[node name="RightEye" type="MeshInstance3D" parent="Body/Head" unique_id=1520025879]
+transform = Transform3D(1.1666842, -0.28079852, 1.8626451e-09, 0.28079855, 1.1666843, 0, -3.7252903e-09, 9.313226e-10, 1.2, 0.43482128, 0.102723, -0.18342419)
+mesh = SubResource("CapsuleMesh_xo5bu")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1748203391]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
